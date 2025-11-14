@@ -1,0 +1,22 @@
+we need a reason why this analysis is important!
+
+we need an effective way of comparing performances.
+- accuracy?
+- precision? 
+- recall? 
+- why is a given metric a good one?
+
+a chart comparing the score by model in a line graph? 
+a chart comparing the MSE by model in a line graph?
+
+i think we need to look into PCA....
+
+how do we know which model is the best?
+What can be said about the data based on which features were the most important, but especially based on which models were the best?
+
+we have, like, 10 features. is there any way we can plot our models using a specific pair of them, or to find some that are related in important, meaningful ways?
+do the feature importances of a given model play a role in its comparison against other models?
+
+
+IDEA:
+do we want to run a test circuit on a SEPARATE dataset from somewhere else with the same features using the top 3 models from our training gamut?
