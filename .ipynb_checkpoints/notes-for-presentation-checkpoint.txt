@@ -1,0 +1,34 @@
+we need a reason why this analysis is important!
+--- With the abundance of ML classification methods, it would take a lot of time and computational resources to discern the best method to employ when classifying sky objects. While there are sky surveys classifying billions of objects constantly, many objects remain uncatalogued. Our project could provide insight into what methods and parameters work best with astronomical object classification, which could provide guidance in further object cataloguing by applying a trained model to unclassified data. (Something like this)
+
+we need an effective way of comparing performances.
+- accuracy: maximize total number of correct predictions
+- precision: minimize number of false positives
+- recall: minimize number of false negatives
+- why is a given metric a good one?
+---- I think accuracy would work best for us because we aren't prioritizing the correct classification of any specific class over another, just overall correct predictions. I believe this is the default scoring metric for most ML methods, but worth making sure.
+
+a chart comparing the score by model in a line graph? - very good for us!
+a chart comparing the MSE by model in a line graph? - only for regression models
+
+i think we need to look into PCA.... (will help with data visualization, can also test how it improves test scores across applicable methods - will look into this)
+
+how do we know which model is the best?
+---- I feel like test scores (accuracy) will be the best for comparison. Clustering models will need calculated accuracy based on labels. The computation(train&predict) time for each model is important info to be considered and displayed. 
+---- I'm imagining 3 separate rankings of our best models in accuracy and the computational times, then a final ranking taking both accuracy and time into account. 
+---- Mathematically (for train time specifically, same applies to prediction time), we could standardize the times by dividing by the max time, then subtract each value from 1 (because lower time is better) to give each method a "training efficiency score." 
+---- Because accuracy is arguably more important than computation time, we would obtain an overall "best method score" by combining accuracies with efficiencies through calculating a weighted average; accuracies would hold 80% weight and training and test efficiencies would hold 10% weight respectively. I'm open to changing these weights if you feel efficiency should hold more weight! 
+
+What can be said about the data based on which features were the most important, but especially based on which models were the best?
+---- This is good to keep in mind, but for the purpose of me going through this doc and brainstorming, I don't think I can answer thsi question yet. Once we get our best rankings (both accuracy and efficiencies), we can provide explanations for why certain models might've performed better than others, which can include information about the data itself. 
+
+we have, like, 10 features. is there any way we can plot our models using a specific pair of them, or to find some that are related in important, meaningful ways?
+--- This is where PCA can be useful for data visualization. There is also the option of creating a plot for each feature against our most important feature and color code the datapoints by classes (i.e. u-mag vs redshift, u-g vs redshift, etc.); this is purely for visualization of data. This would be a grid of plots. Maybe only use colors vs redshift, not mags vs redshift? (actually seeing the plots would help us pick which are more insightful)
+
+do the feature importances of a given model play a role in its comparison against other models?
+---- I don't think it could be a metric for deciding the best model, but providing analysis on which ML methods place higher importance on which features could be worth looking into. Feature importance could help us improve our best models for each method by conducting manual dimensionality reduction, which would ideally increase efficiency and accuracy, but I worry we won't have time for that, so we could include a feature importance analysis in our "future plans" for further improving best models if we can't do it from the start. 
+
+
+IDEA:
+do we want to run a test circuit on a SEPARATE dataset from somewhere else with the same features using the top 3 models from our training gamut?
+--- This is a good idea, and we can test on a dataset that has other kinds of objects to see how they are classified (we can guess they'll be wrongly classified b/c our models are trained for only three kinds of objects) just to provide insight into "future steps" toward a general sky survey classification model. 
