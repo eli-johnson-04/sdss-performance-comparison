@@ -32,16 +32,3 @@ do the feature importances of a given model play a role in its comparison agains
 IDEA:
 do we want to run a test circuit on a SEPARATE dataset from somewhere else with the same features using the top 3 models from our training gamut?
 --- This is a good idea, and we can test on a dataset that has other kinds of objects to see how they are classified (we can guess they'll be wrongly classified b/c our models are trained for only three kinds of objects) just to provide insight into "future steps" toward a general sky survey classification model. 
-
-
-
-
-Post-Presentation Feedback
-- all models don't take up that much space, generally the time and space does not matter as much as accuracy if you have the necessary resources
-- consider including the gridsearch time for each model as opposed to current time set-up
-    I asked more about this:
-    - If we are looking at finding the best models (including specific parameters) for classifying the data, then our original timing scheme makes sense
-    - If we wanted to focus our scope more on finding the best algorithm to classify the data, then gridsearch timing would make more sense given a user would have to optimize on their own for their given dataset
-        - this would slightly change our intentions but may be more robust given different datasets will affect the parameters differently
-- can already see that clustering algorithms may not perform well based on data visualization, he would not be upset if we ended up dropping those algos but can still try
-
